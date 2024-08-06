@@ -1,1 +1,61 @@
+//Leetcode link:https://leetcode.com/problems/number-of-1-bits/description/
+// This problem comes under the domain of bit manupilation 
 
+//whenever u encounter a problem of bit manupilation
+Remember 2 fact we will 
+1. How to find ith bit of a no?
+    (no>>i)&1: this tell whether the ith bit is 1 or not
+
+Solution based on this fact:
+     We will start a loop fron i=0 to i=32( as there a will be 32 bit binary value from 0 to 32) and we will check whether it is 1 or not and increase the counter
+  /***********************************************************************************************CODE*********************************************/
+        public class Solution {
+    
+    public int hammingWeight(int n) {
+        int c=0;
+        int tmp=n;
+       for(int i=0;i<32;i++){
+            int mask=(n>>i);
+            System.out.println(mask);
+            if((mask&1)==1){
+                c++;
+            }
+        }
+        return c;
+        
+    }
+}
+********************************************************************************************************************************************************
+
+
+
+
+2. How to unset the rightmost set (1) bit to zero:
+
+      n=n&(n-1)
+
+      Solution on this fact:
+        We will start a while loop till n does not becomes zero and apply the above fact
+?*************************************************************************CODE*************************************************************************/
+
+
+                class Solution {
+                    public int hammingWeight(int n) {
+                        int c=0;
+                
+                        while(n>0){
+                
+                            n=n&(n-1);
+                           
+                            c++;
+                        }
+                
+                        return c;
+                        
+                    }
+                }
+
+
+
+
+    
